@@ -1,5 +1,5 @@
 #!/usr/local/bin/julia
-using Markdown
+using MarkdownL
 
 input = readall(STDIN)
 
@@ -16,7 +16,7 @@ if input in ("\n", "")
 end
 
 try
-  output = stringmime("text/html", Markdown.parse(input, flavor = :standard))
+  output = stringmime("text/html", MarkdownL.parse(input, flavor = :standard))
 
   println(output)
 
