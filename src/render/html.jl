@@ -1,6 +1,7 @@
 # This file is a part of Julia. License is MIT: http://julialang.org/license
 
 include("rich.jl")
+include("latex.jl")
 
 # Utils
 
@@ -79,6 +80,10 @@ function html(io::IO, md::Paragraph)
     withtag(io, :p) do
         htmlinline(io, md.content)
     end
+end
+
+function html(io::IO, md::LaTeX)
+    latex(io, md.content)
 end
 
 function html(io::IO, md::BlockQuote)
