@@ -13,6 +13,7 @@ end
 
 plain(io::IO, md::MD) = plain(io, md.content)
 plain(io::IO, md::LaTeX) = plain(io, md.formula)
+plain(io::IO, md::String) = plaininline(io, md)
 
 function plain{l}(io::IO, header::Header{l})
     print(io, "#"^l*" ")
