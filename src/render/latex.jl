@@ -28,6 +28,10 @@ function latex(io::IO, md::String)
     latexinline(io, md)
 end
 
+function latex(io::IO, md::LaTeX)
+    latexinline(io, md.formula)
+end
+
 function latex{l}(io::IO, header::Header{l})
     tag = l < 4 ? "sub"^(l-1) * "section" : "sub"^(l-4) * "paragraph"
     wrapinline(io, tag) do
