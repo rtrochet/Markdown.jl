@@ -149,4 +149,9 @@ latexinline(md) = sprint(latexinline, md)
 latexesc(s) = sprint(latexesc, s)
 
 writemime(io::IO, ::MIME"text/latex", md::MD) = latex(io, md)
+
+function writemime(io::IO, ::MIME"text/latex", x::LaTeX)
+    MarkdownL.tex(x.formula)
+end
+
 #writemime(io::IO, ::MIME"text/latex", md::MD) = writemime(io, "text/plain", md)
