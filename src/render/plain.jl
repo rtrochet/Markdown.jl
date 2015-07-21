@@ -12,6 +12,7 @@ function plain(io::IO, content::Vector)
 end
 
 plain(io::IO, md::MD) = plain(io, md.content)
+plain(io::IO, md::LaTeX) = plain(io, md.formula)
 
 function plain{l}(io::IO, header::Header{l})
     print(io, "#"^l*" ")
