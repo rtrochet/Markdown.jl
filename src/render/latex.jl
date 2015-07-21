@@ -76,9 +76,7 @@ end
 # Inline elements
 
 function latexinline(io::IO, md::LaTeX)
-    for c in md
-        latexinline(io, c)
-    end
+    latexinline(io, md.formula)
 end
 
 function latexinline(io::IO, md::Vector)
