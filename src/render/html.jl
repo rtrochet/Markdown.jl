@@ -83,7 +83,7 @@ function html(io::IO, md::Paragraph)
 end
 
 function html(io::IO, md::LaTeX)
-    latex(io, md.content)
+    latex(io, md.formula)
 end
 
 function html(io::IO, md::BlockQuote)
